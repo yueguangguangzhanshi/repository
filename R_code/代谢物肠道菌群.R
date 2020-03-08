@@ -1,0 +1,12 @@
+library(ade4)
+library(vegan)
+pcamil <- dudi.pca(doubs$env[1:20,], scale = TRUE, scan = FALSE, nf = 3)
+pcafau <- dudi.pca(data, scale = FALSE, scan = FALSE, nf = 2)
+coin1 <- coinertia(pcamil, pcafau, scan = FALSE, nf = 2)
+plot(coin1)
+summary(coin1)
+
+proc <- procrustes(pcamil, pcafau)
+plot(proc)
+text(proc)
+summary(proc)
